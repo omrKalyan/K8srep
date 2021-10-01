@@ -4,6 +4,7 @@ metadata:
   name: nginx-deployment
   labels:
     app: nginx
+  namespace: deployment-openshift
 spec:
   replicas: 2
   selector:
