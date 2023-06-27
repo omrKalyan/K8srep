@@ -57,7 +57,7 @@ spec:
         name: nginx-volume
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: local-path  #Replace with your storageclass name
+        storageClassName:  managed-nfs-storage
         resources:
           requests:
             storage: 1Gi
@@ -65,7 +65,7 @@ spec:
         name: mysql-volume
       spec:
         accessModes: ["ReadWriteOnce"]
-        storageClassName: local-path  #Replace with your storageclass name
+        storageClassName:  managed-nfs-storage
         resources:
           requests:
             storage: 2Gi
