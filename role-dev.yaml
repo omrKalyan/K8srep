@@ -4,6 +4,6 @@ metadata:
   namespace: development
   name: developer
 rules:
-- apiGroups: ["", "extensions", "apps"]
-  resources: ["deployments", "replicasets", "pods"]
-  verbs: ["list", "get", "watch", "create", "update", "patch", "delete"]
+- apiGroups: ["", "extensions", "apps"] # Specifies the API groups this Role applies to (core, extensions, and apps)
+  resources: ["deployments", "replicasets", "pods"] # Specifies the resources this Role provides access to (deployments, replicasets, and pods)
+  verbs: ["list", "get", "watch", "create", "update", "patch"] # Specifies the allowed actions (list, get, watch, create, update, and patch)
