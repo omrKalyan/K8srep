@@ -1,13 +1,14 @@
-kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: developer-role-binding
-  namespace: development
-subjects:
-- kind: User
-  name: DevDan
-  apiGroup: ""
-roleRef:
-  kind: Role
-  name: developer
-  apiGroup: ""
+kind: RoleBinding                               # Defines a Kubernetes RoleBinding resource that associates roles with subjects.
+apiVersion: rbac.authorization.k8s.io/v1        # Specifies the API version for Role-based Access Control.
+metadata:                                       # Metadata section for the RoleBinding.
+  name: developer-binding                       # Specifies the name of the RoleBinding.
+  namespace: development                        # Specifies the namespace in which the RoleBinding is created.
+subjects:                                       # Denotes the subjects (users, groups, or service accounts) that the RoleBinding applies to.
+- kind: User                                    # Specifies that the subject is a user.
+  name: DevDan                                  # Specifies the name of the user.
+  apiGroup: rbac.authorization.k8s.io           # Indicates the API group for the subject.
+roleRef:                                        # Denotes the reference to the role that's being bound to the subjects.
+  kind: Role                                    # Specifies that the role being referred to is of kind "Role".
+  name: developer                               # Specifies the name of the Role that's referenced.
+  apiGroup: rbac.authorization.k8s.io           # Indicates the API group for the role reference.
+
