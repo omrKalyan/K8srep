@@ -11,13 +11,14 @@ spec:
     args:
     - /bin/bash
     - -c
-    - service nginx start; touch /readiness; sleep 6000
+    - service nginx start; touch /readiness; sleep 6000    #Start nginx, create a file, then sleep
+    # Define a readiness probe for the container
     readinessProbe:
       exec:
         command:
-        - cat
-        - /readiness
-      initialDelaySeconds: 5
-      periodSeconds: 5
+        - cat                     # Read a file's content
+        - /readiness              # The file to read
+      initialDelaySeconds: 5      # Delay before starting the readiness probe (in seconds)
+      periodSeconds: 5            # Time between consecutive readiness probes (in seconds)
     ports:
     - containerPort: 80
