@@ -9,13 +9,14 @@ spec:
   - name: liveness
     image: busybox
     args:
-    - /bin/sh
-    - -c
-    - touch /liveness; sleep 6000
+    - /bin/sh                       # Use the sh shell
+    - -c                            # With the '-c' flag (commands to follow)
+    - touch /liveness; sleep 6000   # Create a file, then sleep
+    # Define a liveness probe for the container
     livenessProbe:
       exec:
         command:
-        - cat
-        - /liveness
-      initialDelaySeconds: 5 
-      periodSeconds: 5
+        - cat                       # Read a file's content
+        - /liveness                 # The file to read
+      initialDelaySeconds: 5        # Delay before starting the liveness probe (in seconds)
+      periodSeconds: 5              # Time between consecutive liveness probes (in seconds)
